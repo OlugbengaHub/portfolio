@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Olugbenga Adeoye — BI Developer and Data Analyst. Power BI, SQL, Azure, AWS. NHS, enterprise and consulting experience." />
+  <meta name="author" content="Olugbenga Adeoye" />
+  <meta property="og:title" content="Olugbenga Adeoye · BI Developer &amp; Data Analyst" />
+  <meta property="og:description" content="BI Developer and Data Analyst with NHS, enterprise and consulting experience. Power BI, SQL, Azure, AWS. Four Microsoft and AWS certifications." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olugbengahub.github.io/portfolio" />
+  <title>Olugbenga Adeoye · BI Developer &amp; Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #06090f; --bg2: #0d1220;
+      --accent: #3b82f6; --green: #10b981; --amber: #f59e0b;
+      --text: #e8edf5; --muted: rgba(232,237,245,0.5); --dim: rgba(232,237,245,0.28);
+      --border: rgba(255,255,255,0.07); --card: rgba(255,255,255,0.035);
+      --fh: 'Syne', sans-serif; --fm: 'JetBrains Mono', monospace; --fb: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { display: flex; overflow-x: auto; border-bottom: 0.5px solid var(--border); background: rgba(6,9,15,0.97); position: sticky; top: 0; z-index: 100; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    .nt { font-family: var(--fm); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; padding: .7rem 1rem; color: var(--muted); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; border-top: none; border-left: none; border-right: none; background: none; transition: color .15s, border-color .15s; flex-shrink: 0; }
+    .nt:hover { color: rgba(232,237,245,.85); }
+    .nt.on { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* PAGE SECTIONS */
+    .pg { display: none; }
+    .pg.on { display: block; }
+
+    /* HERO */
+    .hero { padding: 3rem 2rem 2.5rem; border-bottom: 0.5px solid var(--border); position: relative; overflow: hidden; }
+    .hero::after { content: 'OA'; position: absolute; right: -1rem; top: 50%; transform: translateY(-50%); font-family: var(--fh); font-size: 9rem; font-weight: 800; color: rgba(59,130,246,.04); pointer-events: none; line-height: 1; }
+    .hgrid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; max-width: 860px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fm); font-size: 10px; letter-spacing: .08em; color: var(--green); border: 0.5px solid rgba(16,185,129,.3); padding: 3px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+    h1.name { font-family: var(--fh); font-size: clamp(1.9rem, 4.5vw, 2.9rem); font-weight: 800; line-height: 1.05; letter-spacing: -.025em; color: #fff; margin-bottom: .35rem; }
+    h1.name em { font-style: normal; color: var(--accent); }
+    .sub { font-family: var(--fm); font-size: 11px; color: var(--muted); letter-spacing: .07em; margin-bottom: .85rem; }
+    .bio { font-size: 14px; color: rgba(232,237,245,.68); max-width: 480px; line-height: 1.8; }
+    .hstats { display: flex; gap: 1.75rem; margin-top: 1.4rem; flex-wrap: wrap; }
+    .hs { display: flex; flex-direction: column; gap: 1px; }
+    .hn { font-family: var(--fh); font-size: 1.35rem; font-weight: 700; color: #fff; }
+    .hn span { color: var(--accent); }
+    .hl { font-family: var(--fm); font-size: 9px; letter-spacing: .07em; color: var(--dim); text-transform: uppercase; }
+    .av { width: 80px; height: 80px; border-radius: 50%; border: 1.5px solid rgba(59,130,246,.4); background: linear-gradient(135deg,rgba(59,130,246,.15),rgba(16,185,129,.1)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .chips { display: flex; flex-direction: column; gap: 4px; align-items: center; margin-top: 8px; }
+    .chip { font-family: var(--fm); font-size: 10px; padding: 2px 9px; border-radius: 10px; border: 0.5px solid rgba(59,130,246,.22); color: var(--accent); background: rgba(59,130,246,.06); }
+    .chip.g { border-color: rgba(16,185,129,.22); color: var(--green); background: rgba(16,185,129,.06); }
+    .chip.a { border-color: rgba(245,158,11,.22); color: var(--amber); background: rgba(245,158,11,.06); }
+
+    /* SECTIONS */
+    .sec { padding: 2.2rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .slbl { font-family: var(--fm); font-size: 10px; letter-spacing: .1em; color: var(--accent); text-transform: uppercase; margin-bottom: .3rem; }
+    .stitle { font-family: var(--fh); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 1.25rem; letter-spacing: -.01em; }
+
+    /* PROJECTS */
+    .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .9rem; }
+    .pcard { background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.15rem; transition: border-color .2s, background .2s; }
+    .pcard:hover { border-color: rgba(59,130,246,.28); background: rgba(59,130,246,.025); }
+    .pcard.feat { border-color: rgba(59,130,246,.16); grid-column: 1/-1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem; align-items: start; }
+    .ptag { font-family: var(--fm); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .45rem; display: flex; align-items: center; gap: 5px; }
+    .ptag.sql { color: #7b9eff; } .ptag.py { color: #facc15; } .ptag.viz { color: #fb923c; } .ptag.combo { color: var(--green); }
+    .pcard h3 { font-family: var(--fh); font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .45rem; letter-spacing: -.01em; }
+    .pcard p { font-size: 13px; color: rgba(232,237,245,.58); line-height: 1.68; }
+    .presult { margin-top: .65rem; padding: .4rem .75rem; background: rgba(16,185,129,.07); border-left: 2px solid var(--green); border-radius: 0 5px 5px 0; font-family: var(--fm); font-size: 11px; color: var(--green); line-height: 1.5; }
+    .vbtn { display: inline-block; margin-top: .65rem; font-family: var(--fm); font-size: 11px; color: var(--accent); border-bottom: .5px dashed rgba(59,130,246,.4); }
+    .vbtn:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* MINI DASHBOARD */
+    .dash { background: rgba(0,0,0,.28); border: 0.5px solid var(--border); border-radius: 8px; padding: .9rem; }
+    .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-bottom: 8px; }
+    .kpi { background: rgba(255,255,255,.04); border-radius: 6px; padding: 6px 8px; border: 0.5px solid rgba(255,255,255,.05); }
+    .kv { font-family: var(--fh); font-size: 1rem; font-weight: 700; color: #fff; }
+    .kl { font-family: var(--fm); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: 1px; }
+    table.mtable { width: 100%; font-family: var(--fm); font-size: 10px; border-collapse: collapse; }
+    .mtable th { color: var(--muted); text-align: left; padding: 4px 5px; border-bottom: .5px solid rgba(255,255,255,.06); font-weight: 400; }
+    .mtable td { padding: 4px 5px; color: rgba(232,237,245,.72); border-bottom: .5px solid rgba(255,255,255,.03); }
+    .td-g { color: var(--green); } .td-r { color: #f87171; }
+
+    /* BAR CHARTS */
+    .barchart { height: 68px; display: flex; align-items: flex-end; gap: 3px; margin-top: .75rem; }
+    .b { flex: 1; border-radius: 2px 2px 0 0; background: rgba(59,130,246,.18); min-width: 5px; }
+    .b.hi { background: var(--accent); }
+    .b.g { background: rgba(16,185,129,.22); } .b.g.hi { background: var(--green); }
+    .chart-label { font-family: var(--fm); font-size: 9px; color: var(--dim); margin-top: 3px; text-align: right; }
+    .sparkline { width: 100%; height: 50px; margin-top: .6rem; }
+
+    /* SKILLS */
+    .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .85rem; }
+    .scard { background: var(--card); border: 0.5px solid var(--border); border-radius: 10px; padding: .95rem 1.1rem; }
+    .scname { font-family: var(--fm); font-size: 10px; letter-spacing: .07em; color: var(--muted); text-transform: uppercase; margin-bottom: .7rem; }
+    .srow { display: flex; align-items: center; gap: 10px; margin-bottom: .45rem; }
+    .sn { font-family: var(--fm); font-size: 12px; color: rgba(232,237,245,.78); width: 72px; flex-shrink: 0; }
+    .pct { font-family: var(--fm); font-size: 10px; color: var(--dim); width: 28px; text-align: right; flex-shrink: 0; }
+    .st { flex: 1; height: 3px; background: rgba(255,255,255,.07); border-radius: 2px; overflow: hidden; }
+    .sf { height: 100%; border-radius: 2px; }
+    .sf.sql { background: #7b9eff; } .sf.py { background: #facc15; } .sf.viz { background: #fb923c; } .sf.stat { background: var(--green); }
+    .info-box { margin-top: 1rem; padding: .75rem 1rem; background: rgba(245,158,11,.05); border: 0.5px solid rgba(245,158,11,.18); border-radius: 8px; font-family: var(--fm); font-size: 11px; color: var(--amber); line-height: 1.6; }
+
+    /* TIMELINE */
+    .tl { position: relative; padding-left: 1.4rem; }
+    .tl::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+    .ti { position: relative; margin-bottom: 1.5rem; }
+    .tdot { position: absolute; left: -1.4rem; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translateX(-3.5px); }
+    .tdot.dim { background: rgba(232,237,245,.2); }
+    .trole { font-family: var(--fh); font-size: .93rem; font-weight: 700; color: #fff; }
+    .tmeta { font-family: var(--fm); font-size: 11px; color: var(--muted); margin: 2px 0 5px; }
+    .tdesc { font-size: 13px; color: rgba(232,237,245,.58); line-height: 1.68; }
+    .tbadges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+    .bdg { font-family: var(--fm); font-size: 10px; padding: 2px 8px; border-radius: 8px; border: 0.5px solid rgba(255,255,255,.1); color: rgba(232,237,245,.48); }
+
+    /* CERTS */
+    .cgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: .75rem; }
+    .ccard { background: var(--card); border: 0.5px solid var(--border); border-radius: 10px; padding: .85rem .95rem; display: flex; align-items: flex-start; gap: 9px; }
+    .cicon { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+    .cname { font-family: var(--fh); font-size: .78rem; font-weight: 700; color: #fff; line-height: 1.35; }
+    .corg { font-family: var(--fm); font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .edu-card { margin-top: 1.1rem; background: var(--card); border: 0.5px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; }
+    .edu-title { font-family: var(--fh); font-size: .92rem; font-weight: 700; color: #fff; }
+    .edu-meta { font-family: var(--fm); font-size: 11px; color: var(--muted); margin: 2px 0 5px; }
+    .edu-desc { font-size: 13px; color: rgba(232,237,245,.55); line-height: 1.65; }
+
+    /* CONTACT */
+    .salary-box { background: rgba(59,130,246,.07); border: 0.5px solid rgba(59,130,246,.18); border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+    .sal-num { font-family: var(--fh); font-size: 1.6rem; font-weight: 800; color: #fff; }
+    .sal-range { font-family: var(--fm); font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .sal-note { font-size: 13px; color: rgba(232,237,245,.55); margin-top: .5rem; line-height: 1.6; }
+    .ctile { background: var(--card); border: 0.5px solid var(--border); border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: .75rem; }
+    .clink { font-family: var(--fm); font-size: 12.5px; color: rgba(232,237,245,.72); margin-bottom: .4rem; display: flex; align-items: center; gap: 8px; }
+    .clink a { color: rgba(232,237,245,.72); }
+    .clink a:hover { color: var(--accent); }
+    .cbtn { display: inline-block; font-family: var(--fm); font-size: 11px; letter-spacing: .03em; padding: 7px 14px; border-radius: 8px; border: 0.5px solid rgba(59,130,246,.28); color: var(--accent); background: rgba(59,130,246,.07); cursor: pointer; transition: background .2s; margin: .35rem .35rem 0 0; text-decoration: none; }
+    .cbtn:hover { background: rgba(59,130,246,.14); text-decoration: none; }
+    .cbtn.em { background: rgba(59,130,246,.13); border-color: rgba(59,130,246,.4); }
+
+    /* FOOTER */
+    footer { padding: 1.5rem 2rem; font-family: var(--fm); font-size: 11px; color: var(--dim); text-align: center; border-top: 0.5px solid var(--border); }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      .pcard.feat { grid-template-columns: 1fr; }
+      .hgrid { grid-template-columns: 1fr; }
+      .av { display: none; }
+      .sec { padding: 1.8rem 1.2rem; }
+      .hero { padding: 2rem 1.2rem 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hgrid">
+      <div>
+        <div class="tag"><span class="dot"></span>available for roles &middot; bi developer &middot; london</div>
+        <h1 class="name">Olugbenga <em>Adeoye</em></h1>
+        <p class="sub">// BI DEVELOPER &amp; DATA ANALYST &middot; POWER BI &middot; SQL &middot; AZURE &middot; AWS</p>
+        <p class="bio">BI Developer and Data Analyst with experience delivering dashboards and data solutions across NHS healthcare, enterprise services, and freelance consulting. Four Microsoft and AWS certifications. Currently completing an MSc in Data Analytics.</p>
+        <div class="hstats">
+          <div class="hs"><div class="hn"><span>4</span></div><div class="hl">Projects</div></div>
+          <div class="hs"><div class="hn"><span>3</span></div><div class="hl">Roles</div></div>
+          <div class="hs"><div class="hn"><span>4</span></div><div class="hl">Certs</div></div>
+          <div class="hs"><div class="hn">MSc</div><div class="hl">In Progress</div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="av">OA</div>
+        <div class="chips">
+          <div class="chip">Power BI</div>
+          <div class="chip g">SQL</div>
+          <div class="chip a">Azure</div>
+          <div class="chip">AWS</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Portfolio sections">
+    <button class="nt on" onclick="show('projects')" aria-current="page">Projects</button>
+    <button class="nt" onclick="show('skills')">Skills</button>
+    <button class="nt" onclick="show('experience')">Experience</button>
+    <button class="nt" onclick="show('certs')">Certifications</button>
+    <button class="nt" onclick="show('contact')">Contact</button>
+  </nav>
+
+  <main>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="pg on">
+      <div class="sec">
+        <div class="slbl">// portfolio &middot; 4 projects &middot; all code on github</div>
+        <div class="stitle">Projects</div>
+        <div class="pgrid">
+
+          <article class="pcard feat">
+            <div>
+              <div class="ptag combo">Featured &middot; SQL + Python + Tableau</div>
+              <h3>UK Consumer Spending Patterns &mdash; Fintech Dataset</h3>
+              <p>Sourced a synthetic UK banking dataset (Kaggle, 487K rows, 14 columns). Cleaned a 6.2% null rate in <code style="font-family:var(--fm);font-size:11px;color:var(--muted)">merchant_category</code> using Pandas mode-imputation per region. Wrote 11 SQL queries &mdash; window functions, CTEs, and cohort logic &mdash; to segment spending by age band, region, and category. Final Tableau dashboard has 5 interactive views with region and date filters.</p>
+              <div class="presult">Key finding: 25&ndash;34 age group overspends on subscriptions by 31% vs UK average &middot; Dashboard published to Tableau Public</div>
+              <a class="vbtn" href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+            </div>
+            <div>
+              <div class="dash">
+                <div class="kpi-row">
+                  <div class="kpi"><div class="kv">487K</div><div class="kl">Rows</div></div>
+                  <div class="kpi"><div class="kv">5</div><div class="kl">Dashboards</div></div>
+                  <div class="kpi"><div class="kv">11</div><div class="kl">SQL queries</div></div>
+                </div>
+                <table class="mtable">
+                  <thead><tr><th>Age band</th><th>Avg/mo</th><th>Sub spend</th><th>vs avg</th></tr></thead>
+                  <tbody>
+                    <tr><td>18&ndash;24</td><td>&pound;1,240</td><td>&pound;48</td><td class="td-g">&minus;4%</td></tr>
+                    <tr><td>25&ndash;34</td><td>&pound;1,890</td><td>&pound;87</td><td class="td-r">+31%</td></tr>
+                    <tr><td>35&ndash;44</td><td>&pound;2,310</td><td>&pound;61</td><td class="td-g">&minus;8%</td></tr>
+                    <tr><td>45&ndash;54</td><td>&pound;2,080</td><td>&pound;52</td><td class="td-g">&minus;21%</td></tr>
+                    <tr><td>55+</td><td>&pound;1,650</td><td>&pound;29</td><td class="td-g">&minus;56%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <article class="pcard">
+            <div class="ptag sql">SQL &middot; PostgreSQL &middot; Window Functions</div>
+            <h3>FTSE 100 Price Momentum Analysis</h3>
+            <p>Pulled 2 years of daily OHLCV data for all 100 constituents via yfinance (73,600 rows). Loaded into local PostgreSQL. Wrote 14 queries using LAG/LEAD, rolling 20-day and 50-day averages, and 52-week high/low flags to surface momentum signals.</p>
+            <div class="barchart" id="bc1"></div>
+            <div class="chart-label">monthly avg closing price &middot; top 5 constituents</div>
+            <div class="presult">14 documented queries &middot; 73,600 rows &middot; cross-signals identified for 12 tickers</div>
+            <a class="vbtn" href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+          </article>
+
+          <article class="pcard">
+            <div class="ptag py">Python &middot; Pandas &middot; Matplotlib &middot; Seaborn</div>
+            <h3>Personal Cashflow EDA &mdash; 12 Months</h3>
+            <p>Exported and anonymised 12 months of personal bank statements (1,847 transactions). Built a Jupyter notebook: category tagging via keyword mapping, monthly income vs expenditure waterfall, savings rate trend, and merchant frequency heatmap.</p>
+            <svg class="sparkline" id="spark1" viewBox="0 0 300 50" preserveAspectRatio="none" aria-label="Savings rate trend over 12 months"></svg>
+            <div class="presult">1,847 transactions &middot; 23-category taxonomy &middot; savings rate improved 8% &rarr; 19%</div>
+            <a class="vbtn" href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">View notebook on GitHub &#8599;</a>
+          </article>
+
+          <article class="pcard">
+            <div class="ptag viz">Power BI &middot; DAX &middot; LendingClub Dataset</div>
+            <h3>Loan Default Risk Dashboard</h3>
+            <p>Used the public LendingClub dataset (180K records). Built 3 DAX measures &mdash; default rate, weighted average interest rate, and DTI-band segmentation. Published a 4-page Power BI report: executive summary, risk heatmap, loan grade breakdown, and borrower drill-through.</p>
+            <div class="barchart" id="bc2"></div>
+            <div class="chart-label">default rate % by loan grade (A &ndash; G)</div>
+            <div class="presult">180K records &middot; 3 DAX measures &middot; 4-page report &middot; published to Power BI web</div>
+            <a class="vbtn" href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="pg">
+      <div class="sec">
+        <div class="slbl">// technical proficiency</div>
+        <div class="stitle">Skills</div>
+        <div class="sgrid">
+
+          <div class="scard">
+            <div class="scname">Power BI &amp; Visualisation</div>
+            <div class="srow"><span class="sn">Power BI</span><div class="st"><div class="sf viz" style="width:92%"></div></div><span class="pct">92%</span></div>
+            <div class="srow"><span class="sn">DAX</span><div class="st"><div class="sf viz" style="width:85%"></div></div><span class="pct">85%</span></div>
+            <div class="srow"><span class="sn">Tableau</span><div class="st"><div class="sf viz" style="width:72%"></div></div><span class="pct">72%</span></div>
+            <div class="srow"><span class="sn">Excel</span><div class="st"><div class="sf viz" style="width:88%"></div></div><span class="pct">88%</span></div>
+          </div>
+
+          <div class="scard">
+            <div class="scname">SQL &amp; Databases</div>
+            <div class="srow"><span class="sn">SQL Server</span><div class="st"><div class="sf sql" style="width:85%"></div></div><span class="pct">85%</span></div>
+            <div class="srow"><span class="sn">PostgreSQL</span><div class="st"><div class="sf sql" style="width:78%"></div></div><span class="pct">78%</span></div>
+            <div class="srow"><span class="sn">Window fns</span><div class="st"><div class="sf sql" style="width:80%"></div></div><span class="pct">80%</span></div>
+            <div class="srow"><span class="sn">CTEs</span><div class="st"><div class="sf sql" style="width:82%"></div></div><span class="pct">82%</span></div>
+          </div>
+
+          <div class="scard">
+            <div class="scname">Cloud &amp; Engineering</div>
+            <div class="srow"><span class="sn">Azure</span><div class="st"><div class="sf stat" style="width:80%"></div></div><span class="pct">80%</span></div>
+            <div class="srow"><span class="sn">AWS</span><div class="st"><div class="sf stat" style="width:75%"></div></div><span class="pct">75%</span></div>
+            <div class="srow"><span class="sn">Data Factory</span><div class="st"><div class="sf stat" style="width:68%"></div></div><span class="pct">68%</span></div>
+            <div class="srow"><span class="sn">Git / GitHub</span><div class="st"><div class="sf stat" style="width:70%"></div></div><span class="pct">70%</span></div>
+          </div>
+
+          <div class="scard">
+            <div class="scname">Python &amp; Analytics</div>
+            <div class="srow"><span class="sn">Pandas</span><div class="st"><div class="sf py" style="width:78%"></div></div><span class="pct">78%</span></div>
+            <div class="srow"><span class="sn">Jupyter</span><div class="st"><div class="sf py" style="width:80%"></div></div><span class="pct">80%</span></div>
+            <div class="srow"><span class="sn">Matplotlib</span><div class="st"><div class="sf py" style="width:68%"></div></div><span class="pct">68%</span></div>
+            <div class="srow"><span class="sn">Statistics</span><div class="st"><div class="sf py" style="width:72%"></div></div><span class="pct">72%</span></div>
+          </div>
+
+        </div>
+        <div class="info-box">
+          Currently completing MSc Data Analytics at London Metropolitan University &mdash; deepening machine learning, statistical modelling, and data engineering skills.
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="pg">
+      <div class="sec">
+        <div class="slbl">// background</div>
+        <div class="stitle">Experience &amp; Education</div>
+        <div class="tl">
+
+          <div class="ti">
+            <div class="tdot"></div>
+            <div class="trole">Power BI Developer / BI Analyst</div>
+            <div class="tmeta">Stingraysphere Consulting Ltd. &middot; Freelance &middot; March 2025 &ndash; Present</div>
+            <div class="tdesc">Independent BI consultancy delivering end-to-end Power BI solutions for clients across multiple sectors. Responsibilities include requirements gathering, data modelling, DAX development, and publishing production-ready dashboards. Building client-facing reporting suites that replace manual Excel processes and surface real-time operational insight.</div>
+            <div class="tbadges">
+              <span class="bdg">Power BI</span><span class="bdg">DAX</span><span class="bdg">SQL</span><span class="bdg">Data Modelling</span><span class="bdg">Stakeholder Management</span>
+            </div>
+          </div>
+
+          <div class="ti">
+            <div class="tdot dim"></div>
+            <div class="trole">Career Break</div>
+            <div class="tmeta">October 2022 &ndash; March 2025</div>
+            <div class="tdesc">Dedicated period of professional development. Completed four Microsoft and AWS certifications (PL-300, DP-203, SAA-C03, DVA-C02), built a data analytics portfolio, and began MSc Data Analytics at London Metropolitan University.</div>
+            <div class="tbadges">
+              <span class="bdg">PL-300</span><span class="bdg">DP-203</span><span class="bdg">AWS SAA</span><span class="bdg">AWS DVA</span><span class="bdg">MSc study</span>
+            </div>
+          </div>
+
+          <div class="ti">
+            <div class="tdot dim"></div>
+            <div class="trole">BI Developer</div>
+            <div class="tmeta">Compass Group &middot; June 2022 &ndash; October 2022</div>
+            <div class="tdesc">Developed and maintained Power BI dashboards for one of the world's largest catering and support services organisations. Worked with stakeholders to translate operational reporting requirements into data models, improving visibility of key performance metrics across business units.</div>
+            <div class="tbadges">
+              <span class="bdg">Power BI</span><span class="bdg">DAX</span><span class="bdg">SQL</span><span class="bdg">Data Modelling</span>
+            </div>
+          </div>
+
+          <div class="ti">
+            <div class="tdot dim"></div>
+            <div class="trole">Data Analyst</div>
+            <div class="tmeta">Aneurin Bevan University Health Board &middot; February 2022 &ndash; June 2022</div>
+            <div class="tdesc">Provided analytical support within an NHS health board environment. Produced reports and dashboards to support clinical and operational decision-making, working with sensitive patient-pathway data under strict governance and data quality standards.</div>
+            <div class="tbadges">
+              <span class="bdg">SQL</span><span class="bdg">Power BI</span><span class="bdg">Excel</span><span class="bdg">NHS Data Standards</span>
+            </div>
+          </div>
+
+          <div class="ti">
+            <div class="tdot dim"></div>
+            <div class="trole">MSc Data Analytics &mdash; In Progress</div>
+            <div class="tmeta">London Metropolitan University &middot; Expected 2026</div>
+            <div class="tdesc">Postgraduate study covering advanced analytics, machine learning, statistical modelling, and data engineering. Developing applied skills to complement professional BI experience.</div>
+            <div class="tbadges">
+              <span class="bdg">Machine Learning</span><span class="bdg">Statistics</span><span class="bdg">Python</span><span class="bdg">Data Engineering</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="pg">
+      <div class="sec">
+        <div class="slbl">// credentials</div>
+        <div class="stitle">Certifications</div>
+        <div class="cgrid">
+
+          <div class="ccard">
+            <div class="cicon" style="background:rgba(0,114,198,.12)">&#128759;</div>
+            <div>
+              <div class="cname">Microsoft Certified: Power BI Data Analyst Associate</div>
+              <div class="corg">Microsoft &middot; PL-300</div>
+            </div>
+          </div>
+
+          <div class="ccard">
+            <div class="cicon" style="background:rgba(0,114,198,.12)">&#9729;</div>
+            <div>
+              <div class="cname">Microsoft Certified: Azure Data Engineer Associate</div>
+              <div class="corg">Microsoft &middot; DP-203</div>
+            </div>
+          </div>
+
+          <div class="ccard">
+            <div class="cicon" style="background:rgba(255,153,0,.12)">&#9889;</div>
+            <div>
+              <div class="cname">AWS Certified: Solutions Architect Associate</div>
+              <div class="corg">Amazon Web Services &middot; SAA-C03</div>
+            </div>
+          </div>
+
+          <div class="ccard">
+            <div class="cicon" style="background:rgba(255,153,0,.12)">&#128295;</div>
+            <div>
+              <div class="cname">AWS Certified: Developer Associate</div>
+              <div class="corg">Amazon Web Services &middot; DVA-C02</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="edu-card">
+          <div class="slbl" style="margin-bottom:.4rem">// education</div>
+          <div class="edu-title">MSc Data Analytics &mdash; In Progress</div>
+          <div class="edu-meta">London Metropolitan University &middot; Expected 2026</div>
+          <div class="edu-desc">Postgraduate programme covering machine learning, statistical modelling, data engineering, and advanced analytics. Running alongside active freelance BI work.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="pg">
+      <div class="sec">
+        <div class="slbl">// availability &amp; salary</div>
+        <div class="stitle">Contact</div>
+
+        <div class="salary-box">
+          <div style="font-family:var(--fm);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:.4rem">Target salary &middot; London &middot; 2025</div>
+          <div class="sal-num">&pound;40,000 &ndash; &pound;50,000</div>
+          <div class="sal-range">BI developer / data analyst &middot; finance, healthcare &amp; enterprise</div>
+          <div class="sal-note">Backed by real delivery experience across NHS, enterprise services, and freelance consulting &mdash; plus four active Microsoft and AWS certifications. The &pound;40K floor is well-supported; senior BI roles with Azure/AWS cloud exposure routinely reach &pound;50K+ in London.</div>
+        </div>
+
+        <div class="ctile">
+          <div class="clink">&#9993; <a href="mailto:adeoyeolugbenga@gmail.com">adeoyeolugbenga@gmail.com</a></div>
+          <div class="clink">in <a href="https://www.linkedin.com/in/olugbenga-adeoye" target="_blank" rel="noopener">linkedin.com/in/olugbenga-adeoye</a></div>
+          <div class="clink">&#9447; <a href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">github.com/OlugbengaHub</a></div>
+          <div class="clink">&#9675; London, UK &middot; right to work &middot; open to hybrid</div>
+          <div>
+            <a class="cbtn em" href="mailto:adeoyeolugbenga@gmail.com">Send an email &#8599;</a>
+            <a class="cbtn" href="https://www.linkedin.com/in/olugbenga-adeoye" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+            <a class="cbtn" href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">GitHub &#8599;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Olugbenga Adeoye &middot; BI Developer &amp; Data Analyst &middot; London &middot; Built with HTML, CSS &amp; JS &middot; <a href="https://github.com/OlugbengaHub" target="_blank" rel="noopener">Source on GitHub</a></p>
+  </footer>
+
+  <script>
+    function show(id) {
+      document.querySelectorAll('.pg').forEach(function(p) { p.classList.remove('on'); });
+      document.querySelectorAll('.nt').forEach(function(t) {
+        t.classList.remove('on');
+        t.removeAttribute('aria-current');
+      });
+      document.getElementById(id).classList.add('on');
+      var ids = ['projects','skills','experience','certs','contact'];
+      var btn = document.querySelectorAll('.nt')[ids.indexOf(id)];
+      btn.classList.add('on');
+      btn.setAttribute('aria-current', 'page');
+    }
+
+    function bars(id, vals, extraClass) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var mx = Math.max.apply(null, vals);
+      vals.forEach(function(v) {
+        var b = document.createElement('div');
+        var hi = v === mx;
+        b.className = 'b' + (extraClass ? ' ' + extraClass : '') + (hi ? ' hi' : '');
+        b.style.height = Math.round((v / mx) * 62) + 'px';
+        el.appendChild(b);
+      });
+    }
+
+    bars('bc1', [6820,6940,7110,7050,7280,7410,7390,7520,7480,7600,7550,7680]);
+    bars('bc2', [2.1,4.8,8.2,12.6,18.4,24.1,31.7], 'g');
+
+    (function() {
+      var svg = document.getElementById('spark1');
+      if (!svg) return;
+      var savings = [8,9,8,10,11,13,12,14,15,16,17,19];
+      var W = 300, H = 50, pad = 4;
+      var mn = Math.min.apply(null, savings);
+      var mx = Math.max.apply(null, savings);
+      var rng = mx - mn || 1;
+      var pts = savings.map(function(v, i) {
+        var x = pad + (i / (savings.length - 1)) * (W - pad * 2);
+        var y = H - pad - ((v - mn) / rng) * (H - pad * 2);
+        return x + ',' + y;
+      });
+      var ns = 'http://www.w3.org/2000/svg';
+      var line = document.createElementNS(ns, 'polyline');
+      line.setAttribute('points', pts.join(' '));
+      line.setAttribute('fill', 'none');
+      line.setAttribute('stroke', '#10b981');
+      line.setAttribute('stroke-width', '1.5');
+      line.setAttribute('stroke-linejoin', 'round');
+      svg.appendChild(line);
+      var last = pts[pts.length - 1].split(',');
+      var dot = document.createElementNS(ns, 'circle');
+      dot.setAttribute('cx', last[0]);
+      dot.setAttribute('cy', last[1]);
+      dot.setAttribute('r', '3');
+      dot.setAttribute('fill', '#10b981');
+      svg.appendChild(dot);
+      var lbl = document.createElementNS(ns, 'text');
+      lbl.setAttribute('x', String(parseFloat(last[0]) - 26));
+      lbl.setAttribute('y', String(parseFloat(last[1]) - 6));
+      lbl.setAttribute('font-family', 'JetBrains Mono, monospace');
+      lbl.setAttribute('font-size', '9');
+      lbl.setAttribute('fill', '#10b981');
+      lbl.textContent = '19% savings rate';
+      svg.appendChild(lbl);
+    })();
+  </script>
+
+</body>
+</html>
